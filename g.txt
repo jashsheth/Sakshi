@@ -1,0 +1,104 @@
+
+import java.awt.Robot; // imports library for key press or release simulation
+import java.awt.event.KeyEvent; // imports library for reading the data from the serial port
+import java.io.IOException;
+import processing.serial.*;
+Serial s;
+String data="";
+Robot robot;
+char f;
+
+void setup()
+{
+  try 
+  {
+    robot = new Robot();
+  }
+  catch (Exception e) {
+    e.printStackTrace();
+    exit();
+  }
+  background(0, 0, 0);
+  fill(255, 255, 255);
+  size (800, 800);
+  s=new Serial(this, "COM21", 115200);
+  s.bufferUntil('.');
+}
+void draw()
+{
+  // int f=1;
+
+  if ( s.available() > 0) 
+  {  // If data is available,
+    // data = s.readStringUntil('\n'); 
+    data=s.readString();
+    // data=data.valueOf(data);
+    f=data.charAt(0); 
+    if (f == 67)
+    {
+      delay(50);
+      robot.keyPress(83);
+      // robot.keyPress(68);
+      //print("stop");
+    }
+    if (f != 67)
+    {
+      delay(50);
+      robot.keyRelease(83);
+      // robot.keyPress(68);
+      //print("stop");
+    }
+
+    if (f == 70)
+    {
+      delay(50);
+      robot.keyPress(87);
+      robot.keyPress(16);
+
+      //print("forward");
+    }
+    if (f != 70)
+    {
+      delay(50);
+      robot.keyRelease(119);
+      robot.keyRelease(16);
+      //print("forward");
+    }
+    if (f == 65)
+    {
+      delay(50);
+      robot.keyPress(87);
+      robot.keyPress(68);
+      //print("forward right");
+    }
+    if (f != 65)
+    {
+      delay(50);
+      robot.keyRelease(87);
+      robot.keyRelease(68);
+      //print("forward right");
+    }
+    if (f == 66)
+    {
+      delay(50);
+      robot.keyPress(87);
+      robot.keyPress(65);
+      //print("left");WAsssssss
+    }
+    if (f != 66)
+    {
+      delay(50);
+      robot.keyRelease(87);
+      robot.keyRelease(65);
+      //print("left");
+    }
+
+    // robot.keyRelease(87);
+    //robot.keyRelease(68);
+    //robot.keyRelease(83);
+    //robot.keyRelease(65);wd
+    print(data); //print it out in the console
+
+    data="";
+  }
+}

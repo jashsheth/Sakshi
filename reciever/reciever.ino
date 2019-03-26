@@ -1,5 +1,5 @@
-#define lf_1 3
-#define lf_2 4
+#define lf_1 4
+#define lf_2 3
 #define lb_1 5
 #define lb_2 6
 
@@ -51,9 +51,10 @@ void loop()
   {
     int i;
     digitalWrite(led, HIGH);
- //   delay(50);
+    //   delay(50);
+    
     digitalWrite(led, LOW);
-   // delay(50);
+    // delay(50);
 
     Serial.print("Got: ");
 
@@ -70,51 +71,34 @@ void loop()
       {
         digitalWrite(2, HIGH);
         Serial.println("Forward ");
-                digitalWrite(lf_1, HIGH);
-                digitalWrite(lf_2, LOW);
-                digitalWrite(lb_1, HIGH);
-                digitalWrite(lb_2, LOW);
-        
-                digitalWrite(rf_1, HIGH);
-                digitalWrite(rf_2, LOW);
-                digitalWrite(rb_1, HIGH);
-                digitalWrite(rb_2, LOW);
+        digitalWrite(lf_1, HIGH);
+        digitalWrite(lf_2, LOW);
+        digitalWrite(lb_1, HIGH);
+        digitalWrite(lb_2, LOW);
+
+        digitalWrite(rf_1, HIGH);
+        digitalWrite(rf_2, LOW);
+        digitalWrite(rb_1, HIGH);
+        digitalWrite(rb_2, LOW);
         // Serial.println("  FORWARD ");
 
 
       }
-
-//      if (buf[i] == 57) //Backward
-//      {
-//        digitalWrite(3, HIGH);
-//        //        digitalWrite(lf_1, LOW);
-//        //        digitalWrite(lf_2, HIGH);
-//        //        digitalWrite(lb_1, LOW);
-//        //        digitalWrite(lb_2, HIGH);
-//        //
-//        //        digitalWrite(rf_1, LOW);
-//        //        digitalWrite(rf_2, HIGH);
-//        //        digitalWrite(rb_1, LOW);
-//        //        digitalWrite(rb_2, HIGH);
-//        Serial.println(" BACK  ");
-//
-//
-//
-//      }
+ 
 
       if (buf[i] == 51) //Left
       {
         digitalWrite(4, HIGH);
         Serial.println(" LEFT ");
-        //        digitalWrite(lf_1, LOW);
-        //        digitalWrite(lf_2, HIGH);
-        //        digitalWrite(lb_1, LOW);
-        //        digitalWrite(lb_2, HIGH);
-        //
-        //        digitalWrite(rf_1, HIGH);
-        //        digitalWrite(rf_2, LOW);
-        //        digitalWrite(rb_1, HIGH);
-        //        digitalWrite(rb_2, LOW);
+        digitalWrite(lf_1, HIGH);
+        digitalWrite(lf_2, LOW);
+        digitalWrite(lb_1, LOW);
+        digitalWrite(lb_2, HIGH);
+
+        digitalWrite(rf_1, HIGH);
+        digitalWrite(rf_2, LOW);
+        digitalWrite(rb_1, HIGH);
+        digitalWrite(rb_2, LOW);
         // Serial.println("left");
 
       }
@@ -123,15 +107,15 @@ void loop()
       {
         digitalWrite(5, HIGH);
         Serial.println("Right ");
-                analogWrite(lf_1, 150);
-                digitalWrite(lf_2, LOW);
-                digitalWrite(lb_1, HIGH);
-                digitalWrite(lb_2, LOW);
-        
-                digitalWrite(rf_1, LOW);
-                digitalWrite(rf_2, HIGH);
-                digitalWrite(rb_1, LOW);
-                digitalWrite(rb_2, HIGH);
+        digitalWrite(lf_1, LOW);
+        digitalWrite(lf_2, HIGH);
+        digitalWrite(lb_1, HIGH);
+        digitalWrite(lb_2, LOW);
+
+        digitalWrite(rf_1, LOW);
+        digitalWrite(rf_2, HIGH);
+        digitalWrite(rb_1, LOW);
+        digitalWrite(rb_2, HIGH);
 
 
       }

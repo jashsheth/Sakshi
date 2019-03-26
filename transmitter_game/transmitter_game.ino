@@ -70,27 +70,27 @@ void loop() {
   //     Serial.println((char)176);
   //
   Serial.println("-------------------------------------------");
-  delay(500);
+ // delay(500);
  // digitalWrite(led, HIGH);
   //delay(1000);
 
   if ((x >= 30 && x <= 55 ) && (y >= 34 && y <= 70))
   {
-    const char text[] = "FR";
+    const char text[] = "A.";
     radio.write(&text, sizeof(text));
     Serial.println(" Forward Right  ");
   }
 
   else if ((x >= 30 && x <= 55) && (y <= 330 && y >= 280))
   {
-    const char text[] = "FL";
+    const char text[] = "B.";
     radio.write(&text, sizeof(text));
     Serial.println("Forward Left ");
   }
 
   else if (x > 25 && x < 60 )
   {
-    const char text[] = "F";
+    const char text[] = "F.";
     radio.write(&text, sizeof(text));
     Serial.println(" FORWARD ");
     char msg1[1] = {'0'};
@@ -114,46 +114,50 @@ void loop() {
   //  }
 
 
-  //else if(y>15 && y<50 )
-  //{
-  //
-  //  Serial.println("   RIGHT   ");
-  //    char msg2[1] = {'2'};
-  //
-  // Serial.println(msg2);
-  //
-  //  vw_send((uint8_t *)msg2, 1);
-  //  vw_wait_tx();
-  //}
+  else if(y>35 && y<70 )
+  {
+  const char text[] = "A.";
+    radio.write(&text, sizeof(text));
+    Serial.println(" Forward Right  ");
+    Serial.println("   RIGHT   ");
+//      char msg2[1] = {'2'};
+//  
+//   Serial.println(msg2);
+//  
+//    vw_send((uint8_t *)msg2, 1);
+//    vw_wait_tx();
+  }
 
 
 
-  //else if(y>280 && y<330)
-  //  {
-  //
-  //  Serial.println("   LEFT    ");
-  //   char msg3[1] = {'3'};
-  //
-  // Serial.println(msg3);
-  //
-  //  vw_send((uint8_t *)msg3, 1);
-  //  vw_wait_tx();
-  //}
-  else if (((x > 345 && x < 360)) || (x >= 0 && x < 25))
+  else if(y>280 && y<330)
+    {
+  
+    Serial.println("   LEFT    ");
+    const char text[] = "B.";
+    radio.write(&text, sizeof(text));
+//     char msg3[1] = {'3'};
+//  
+//   Serial.println(msg3);
+//  
+//    vw_send((uint8_t *)msg3, 1);
+//    vw_wait_tx();
+  }
+  else if (((x > 335 && x < 360)) || (x >= 0 && x < 25))
   {
     Serial.println( "STOP ");
     char msg4[1] = {'8'};
-    const char text[] = "S";
+    const char text[] = "S.";
     radio.write(&text, sizeof(text));
     //Serial.println(msg4);
     //
     //    vw_send((uint8_t *)msg4, 1);
     //    vw_wait_tx();
   }
-  else if (x > 280 && x < 346 )
+  else if (x > 280 && x < 334 )
   {
     Serial.println(" BAckward ");
-    const char text[] = "B";
+    const char text[] = "C.";
     radio.write(&text, sizeof(text));
 
   }

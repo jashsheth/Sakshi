@@ -67,7 +67,7 @@ void loop() {
 
   digitalWrite(13, HIGH);
 
-  if ((x >= 30 && x <= 55 ) && (y >= 34 && y <= 65) )
+  if (((x >= 30 && x <= 55 ) && (y >= 34 && y <= 65) ) || (y >= 34 && y <= 65))
   {
 
     Serial.println(" Forward  RIGHT   ");
@@ -78,7 +78,7 @@ void loop() {
     vw_send((uint8_t *)msg2, 1);
     vw_wait_tx();
   }
-  else if ((x >= 30 && x <= 55) && (y <= 330 && y >= 280))
+  else if (((x >= 30 && x <= 55) && (y <= 330 && y >= 280)) || (y > 280 && y < 330))
   {
 
     Serial.println(" Forward  LEFT    ");
